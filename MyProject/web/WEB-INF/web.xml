@@ -4,9 +4,17 @@
         <servlet-name>RecordAttendence</servlet-name>
         <servlet-class>ServletController.servletRecord</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SchedulesForClasses</servlet-name>
+        <servlet-class>ServletController.servletSchedules</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RecordAttendence</servlet-name>
         <url-pattern>/record</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SchedulesForClasses</servlet-name>
+        <url-pattern>/schedules</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
