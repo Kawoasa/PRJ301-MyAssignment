@@ -8,6 +8,10 @@
         <servlet-name>SchedulesForClasses</servlet-name>
         <servlet-class>ServletController.servletSchedules</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GroupedByDepartment</servlet-name>
+        <servlet-class>ServletController.servletGroups</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RecordAttendence</servlet-name>
         <url-pattern>/record</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>SchedulesForClasses</servlet-name>
         <url-pattern>/schedules</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupedByDepartment</servlet-name>
+        <url-pattern>/groups</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
