@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>RecordAttendence</servlet-name>
-        <servlet-class>ServletController.servletRecord</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SchedulesForClasses</servlet-name>
-        <servlet-class>ServletController.servletSchedules</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>GroupedByDepartment</servlet-name>
-        <servlet-class>ServletController.servletGroups</servlet-class>
+        <servlet-name>LecturerAttController</servlet-name>
+        <servlet-class>controller.lecturer.AttController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>RecordAttendence</servlet-name>
-        <url-pattern>/record</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SchedulesForClasses</servlet-name>
-        <url-pattern>/schedules</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GroupedByDepartment</servlet-name>
-        <url-pattern>/groups</url-pattern>
+        <servlet-name>LecturerAttController</servlet-name>
+        <url-pattern>/lecture/takeatt</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
