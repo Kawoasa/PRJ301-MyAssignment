@@ -24,8 +24,8 @@
             <div class="col-md-12">
                 <h2>Single activity Attendance</h2>
                 Take attendance for Group: ${requestScope.ses.group.name} <br/>
-                Attendance for <strong> ${requestScope.ses.group.subject.name}</strong> will leacturer <strong>SonNT5</strong> at slot 1 on ${requestScope.ses.date} - ${requestScope.ses.slot.description}, in room ${requestScope.ses.room.name} at FU-HL<br>
-                Attended: <span style="color: red;"> ${requestScope.ses.attanded?"Yes":"No"} </span>
+                Attendance for <strong> ${requestScope.ses.group.subject.name}</strong> will leacturer <strong>SonNT5</strong> at slot 1 on ${requestScope.ses.date} - ${requestScope.ses.timeslot.description}, in room ${requestScope.ses.room.name} at FU-HL<br>
+                Attended: <span style="color: red;"> ${requestScope.ses.attandated?"Yes":"No"} </span>
                 <form action="takeatt" method="POST">
                     <input type="hidden" name="sesid" value="${param.id}"/>
                     <table>
@@ -42,7 +42,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${requestScope.ses.atts}" var="a" varStatus="loop">
+                            <c:forEach items="${requestScope.ses.attandances}" var="a" varStatus="loop">
                                 <tr>
                                     <td>${loop.index+1}</td>
                                     <td><font color="#33CCFF">${a.student.id}</font>
