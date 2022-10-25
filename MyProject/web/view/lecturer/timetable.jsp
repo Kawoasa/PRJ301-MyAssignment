@@ -10,48 +10,69 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <title>JSP Page</title>
     </head>
     <body>
-        Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/>
-        <form action="timetable" method="GET">
-            <input type="hidden" name="lid" value="${param.lid}"/>
-            From: <input type="date" name="from" value="${requestScope.from}"/>
-            To: <input type="date" name="to" value="${requestScope.to}"/>
-            <input type="submit" value="View"/> 
-        </form>
-        <table border="1px">
-            <tr>
-                <td> </td>
-                <c:forEach items="${requestScope.dates}" var="d">
-                    <td>${d}<br/>${helper.getDayNameofWeek(d)}</td>
-                    </c:forEach>
-            </tr>
-            <c:forEach items="${requestScope.slots}" var="slot">
-                <tr>
-                    <td>Slot ${slot.id}</td>
-                    <c:forEach items="${requestScope.dates}" var="d">
-                        <td>
-                            <c:forEach items="${requestScope.sessions}" var="ses">
-                                <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                    <a href="att?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
-                                    <br/>
-                                    ${ses.room.name}
+        <div class="container ">
+            <div class="col-md-12">
+                <form action="timetable" method="GET">
+                    <div class="lecturer text-center">
+                        Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">
+                                    <input type="hidden" name="lid" value="${param.lid}"/>
+                                    From: <input type="date" name="from" value="${requestScope.from}"/>
                                     <br>
-                                    <c:if test="${ses.attandated}">
-                                        <a href=""><font color="green">(Attended)</font></a>
-                                    </c:if>
-                                    <c:if test="${!ses.attandated}">
-                                        <a href=""><font color="red">(Not yet)</font></a>                                    
-                                    </c:if>
-                                </c:if>
-
+                                    To: <input type="date" name="to" value="${requestScope.to}"/>
+                                    <input type="submit" value="View"/> 
+                                </th>
+                                <c:forEach items="${requestScope.dates}" var="d">
+                                    <th>${helper.getDayNameofWeek(d)}</th>
+                                    </c:forEach>
+                            </tr>
+                            <tr>
+                                <c:forEach items="${requestScope.dates}" var="d">
+                                    <th>${d}</th>
+                                    </c:forEach>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${requestScope.slots}" var="slot">
+                                <tr>
+                                    <td>Slot ${slot.id} <br/> <span class="label label-success">${slot.description}</span></td> 
+                                        <c:forEach items="${requestScope.dates}" var="d">
+                                        <td>
+                                            <c:forEach items="${requestScope.sessions}" var="ses">
+                                                <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
+                                                    <a href="takeatt?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
+                                                    <br/>
+                                                    ${ses.room.name}
+                                                    <br/>
+                                                    <c:if test="${ses.attandated}">
+                                                        <a href=""><font color="green">(Attended)</font></a>
+                                                        </c:if>
+                                                        <c:if test="${!ses.attandated}">
+                                                        <a href=""><font color="red">(Not yet)</font></a>                                    
+                                                        </c:if>
+                                                    </c:if>
+                                                </c:forEach>
+                                        </td>
+                                    </c:forEach>
+                                </tr>
                             </c:forEach>
-                        </td>
-                    </c:forEach>
-                </tr>
-            </c:forEach>
-        </table>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
