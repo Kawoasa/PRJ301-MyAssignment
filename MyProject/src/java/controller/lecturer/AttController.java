@@ -7,7 +7,6 @@ package controller.lecturer;
 
 import dal.SessionDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -62,7 +61,7 @@ public class AttController extends HttpServlet {
             a.setDescription(request.getParameter("description"+stdid));
             a.setPresent(request.getParameter("present"+stdid).equals("present"));
             s.setId(Integer.parseInt(stdid));
-            ses.getAtts().add(a);
+            ses.getAttandances().add(a);
         }
         SessionDBContext db = new SessionDBContext();
         db.update(ses);
