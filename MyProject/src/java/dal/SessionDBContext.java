@@ -62,7 +62,7 @@ public class SessionDBContext extends DBContext<Session> {
                 session.setId(rs.getInt("sesid"));
                 session.setDate(rs.getDate("date"));
                 session.setIndex(rs.getInt("index"));
-                session.setAttanded(rs.getBoolean("attanded"));
+                session.setAttandated(rs.getBoolean("attanded"));
                 
                 l.setId(rs.getInt("lid"));
                 l.setName(rs.getString("lname"));
@@ -82,7 +82,7 @@ public class SessionDBContext extends DBContext<Session> {
                 
                 t.setId(rs.getInt("tid"));
                 t.setDescription(rs.getString("description"));
-                session.setSlot(t);
+                session.setTimeslot(t);
                 
                 sessions.add(session);
             }
@@ -113,7 +113,7 @@ public class SessionDBContext extends DBContext<Session> {
             stm_delete.executeUpdate();
 
             //insert new attandances
-            for (Attandance att : model.getAtts()) {
+            for (Attandance att : model.getAttandances()) {
                 sql = "INSERT INTO [Attandance]\n"
                         + "           ([sesid]\n"
                         + "           ,[stdid]\n"
@@ -192,7 +192,7 @@ public class SessionDBContext extends DBContext<Session> {
                     TimeSlot t = new TimeSlot();
                     t.setId(rs.getInt("tid"));
                     t.setDescription(rs.getString("tdescription"));
-                    ses.setSlot(t);
+                    ses.setTimeslot(t);
 
                     Lecturer l = new Lecturer();
                     l.setId(rs.getInt("lid"));
@@ -211,7 +211,7 @@ public class SessionDBContext extends DBContext<Session> {
 
                     ses.setDate(rs.getDate("date"));
                     ses.setIndex(rs.getInt("index"));
-                    ses.setAttanded(rs.getBoolean("attanded"));
+                    ses.setAttandated(rs.getBoolean("attanded"));
                 }
                 //read student
                 Student s = new Student();
@@ -223,7 +223,7 @@ public class SessionDBContext extends DBContext<Session> {
                 a.setSession(ses);
                 a.setPresent(rs.getBoolean("present"));
                 a.setDescription(rs.getString("description"));
-                ses.getAtts().add(a);
+                ses.getAttandances().add(a);
             }
             return ses;
         } catch (SQLException ex) {
