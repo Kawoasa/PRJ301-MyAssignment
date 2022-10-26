@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Attandance;
 import model.Session;
 import model.Student;
+import util.DateTimeHelper;
 
 /**
  *
@@ -38,6 +39,11 @@ public class AttController extends HttpServlet {
         SessionDBContext sesDB = new SessionDBContext();
         Session ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
+        if(DateTimeHelper.getDaystoCurrent(ses.getDate())>=2)
+            response.getWriter().println("this session is out of date");
+        else if(DateTimeHelper.getDaystoCurrent(ses.getDate())< 0)
+            response.getWriter().println("this session is not yet started");
+        else
         request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
     } 
 
