@@ -32,7 +32,7 @@
                                     <input type="hidden" name="lid" value="${param.lid}"/>
                                     From: <input type="date" name="from" value="${requestScope.from}"/>
                                     <br>
-                                    To: <input type="date" name="to" value="${requestScope.to}"/>
+                                    To  : <input type="date" name="to" value="${requestScope.to}"/>
                                     <input type="submit" value="View"/> 
                                 </th>
                                 <c:forEach items="${requestScope.dates}" var="d">
@@ -57,12 +57,14 @@
                                                     <br/>
                                                     ${ses.room.name}
                                                     <br/>
-                                                    <c:if test="${ses.attandated}">
-                                                        <a href=""><font color="green">(Attended)</font></a>
-                                                        </c:if>
-                                                        <c:if test="${!ses.attandated}">
-                                                        <a href=""><font color="red">(Not yet)</font></a>                                    
-                                                        </c:if>
+                                                    <c:choose>
+                                                        <c:when test="${ses.attandated}">
+                                                            <a href=""><font color="green">(Attended)</font></a>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            <a href=""><font color="red">(Not yet)</font></a>                                    
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </c:if>
                                                 </c:forEach>
                                         </td>
