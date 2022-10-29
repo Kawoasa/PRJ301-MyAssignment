@@ -1,8 +1,4 @@
-<%-- 
-    Document   : att
-    Created on : Oct 16, 2022, 3:08:10 PM
-    Author     : sonnt
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -68,6 +64,7 @@
                             </center>
                             </td>
                             <td><input type="text" name="description${a.student.id}" value="${a.description}" /></td>
+                            <td>${a.record_time}</td>
                             </tr>   
                         </c:forEach>
                         </tbody>
