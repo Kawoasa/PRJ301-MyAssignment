@@ -1,9 +1,5 @@
-<%-- 
-    Document   : timetable
-    Created on : Oct 15, 2022, 9:30:31 AM
-    Author     : Ngo Tung Son
---%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="helper" class="util.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,6 +17,7 @@
     <body>
         <div class="container ">
             <div class="col-md-12">
+                <h1><span>FPT University Academic Portal</span></h1>
                 <form action="timetable" method="GET">
                     <div class="lecturer text-center">
                         Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/>
@@ -41,8 +38,10 @@
                             </tr>
                             <tr>
                                 <c:forEach items="${requestScope.dates}" var="d">
-                                    <th>${d}</th>
-                                    </c:forEach>
+                                    <th>
+                                        <fmt:formatDate value="${d}" pattern="dd/MM"/>
+                                    </th>
+                                </c:forEach>
                             </tr>
                         </thead>
                         <tbody>
