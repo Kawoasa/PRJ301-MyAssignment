@@ -19,7 +19,7 @@ import model.Session;
  */
 public class GroupDBContext extends DBContext<Group> {
 
-    public Group fliter(int gid, int lid, int subid) {
+    public Group fliter(int gid, String lid, int subid) {
 
         try {
             String sql = "SELECT DISTINCT ses.sesid\n"
@@ -32,7 +32,7 @@ public class GroupDBContext extends DBContext<Group> {
                     + "                     WHERE g.gid = ? and l.lid = ? and sub.subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, gid);
-            stm.setInt(2, lid);
+            stm.setString(2, lid);
             stm.setInt(3, subid);
             ResultSet rs = stm.executeQuery();
             ArrayList<Session> sessions = new ArrayList<>();
