@@ -6,17 +6,22 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author sonnt
- */
 public class Account {
     private String username;
     private String password;
     private String displayname;
-//    private Lecturer lecturer;
+    private Lecturer lecturer;
     private ArrayList<Role> roles = new ArrayList<>();
 
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    
     public ArrayList<Role> getRoles() {
         return roles;
     }
