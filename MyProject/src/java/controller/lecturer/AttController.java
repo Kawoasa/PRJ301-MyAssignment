@@ -15,7 +15,6 @@ import model.Session;
 import model.Student;
 import util.DateTimeHelper;
 
-
 public class AttController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -34,12 +33,14 @@ public class AttController extends HttpServlet {
         SessionDBContext sesDB = new SessionDBContext();
         Session ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
-//        if(DateTimeHelper.getDaystoCurrent(ses.getDate())>=2)
-//            response.getWriter().println("this session is out of date");
-//        else if(DateTimeHelper.getDaystoCurrent(ses.getDate())< 0)
-//            response.getWriter().println("this session is not yet started");
-//        else
-        request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
+        if (DateTimeHelper.getDaystoCurrent(ses.getDate()) >= 2) {
+            request.getRequestDispatcher("../view/lecturer/attendTime.jsp").forward(request, response);
+
+        } //        else if(DateTimeHelper.getDaystoCurrent(ses.getDate())< 0)
+        //            response.getWriter().println("this session is not yet started");
+        else {
+            request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -68,6 +69,7 @@ public class AttController extends HttpServlet {
         SessionDBContext db = new SessionDBContext();
         db.update(ses);
         response.sendRedirect("takeatt?id=" + ses.getId());
+//        response.sendRedirect("lecturer/timetable?lid=" + ses.getLecturer().getId());
     }
 
     /**
