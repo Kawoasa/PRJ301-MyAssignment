@@ -33,7 +33,7 @@ class StudentDBContext extends DBContext<Student> {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Student student = new Student();
-                student.setId(rs.getInt("stdid"));
+                student.setId(rs.getString("stdid"));
                 student.setName(rs.getString("stdname"));
                 students.add(student);
             }
@@ -74,7 +74,7 @@ class StudentDBContext extends DBContext<Student> {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Student s = new Student();
-                s.setId(rs.getInt("stdid"));
+                s.setId(rs.getString("stdid"));
                 s.setName(rs.getString("stdname"));
                 students.add(s);
             }
