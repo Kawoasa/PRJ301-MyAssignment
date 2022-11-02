@@ -16,6 +16,11 @@
         <div class="container">
             <div class="col-md-12">
                 <h1><span>FPT University Academic Portal</span></h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <span></span>
+                    </li>
+                </ol>
                 <div class="col-md-12">
                     <div style="border: solid 1px #ccc; height: 200px;">
                         <center>
