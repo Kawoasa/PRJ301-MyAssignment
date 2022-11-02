@@ -20,9 +20,13 @@
                     <h1><span>FPT University Academic Portal</span></h1>
                     <c:if test="${sessionScope.account ne null}">
                         <div>
-                            Hello ${sessionScope.account.displayname},  click 
-                            <a href="logout">here</a> 
-                            to logout.                            
+                            <ol class="breadcrumb">
+                                <li>
+                                    <span>Hello ${sessionScope.account.displayname},  click 
+                                        <a href="logout">here</a> 
+                                        to logout.</span>
+                                </li>
+                            </ol>
                         </div>
                         <br>
                         <br>
