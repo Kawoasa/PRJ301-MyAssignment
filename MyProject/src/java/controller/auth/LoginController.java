@@ -46,15 +46,13 @@ public class LoginController extends HttpServlet {
         AccountDBContext db = new AccountDBContext();
         Account account = db.get(username, password);
         LecturerDBContext ldb = new LecturerDBContext();
-        int lid = ldb.get(username);
         if (account == null) {
 //            response.getWriter().println("login failed!");
-            response.sendRedirect("http://localhost:9999/MyProject/login");
+            request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);
         } else {
-            request.setAttribute("lid", lid);
             request.getSession().setAttribute("account", account);
+            request.getRequestDispatcher("view/home.jsp").forward(request, response);
 //            response.getWriter().println("login successful!");
-            response.sendRedirect("http://localhost:9999/MyProject/home");
         }
     }
 
