@@ -18,9 +18,14 @@
         <div class="container ">
             <div class="col-md-12">
                 <h1><span>FPT University Academic Portal</span></h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <span><a href="../home">Home</a></span>
+                    </li>
+                </ol>
                 <form action="timetable" method="GET">
                     <div class="lecturer text-center">
-                        Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/>
+                        Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.id}"/>
                     </div>
                     <table>
                         <thead>
