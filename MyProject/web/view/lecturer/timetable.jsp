@@ -30,7 +30,7 @@
                                     From: <input type="date" name="from" value="${requestScope.from}"/>
                                     <br>
                                     To  : <input type="date" name="to" value="${requestScope.to}"/>
-                                    <input type="submit" value="View"/> 
+                                    <input class="btn-success" type="submit" value="View"/> 
                                 </th>
                                 <c:forEach items="${requestScope.dates}" var="d">
                                     <th>${helper.getDayNameofWeek(d)}</th>
@@ -53,6 +53,7 @@
                                             <c:forEach items="${requestScope.sessions}" var="ses">
                                                 <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
                                                     <a href="takeatt?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
+                                                    <a href="status?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">Status</a>
                                                     <br/>
                                                     ${ses.room.name}
                                                     <br/>
