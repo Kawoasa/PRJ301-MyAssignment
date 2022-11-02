@@ -165,7 +165,7 @@ public class SessionDBContext extends DBContext<Session> {
                     + "	,t.tid,t.[description] tdescription\n"
                     + "	,l.lid,l.lname\n"
                     + "	,sub.subid,sub.subname\n"
-                    + "	,s.stdid,s.stdname\n"
+                    + "	,s.stdid,s.stdname, a.record_time\n"
                     + "	,ISNULL(a.present,0) present, ISNULL(a.[description],'') [description]\n"
                     + "		FROM [Session] ses\n"
                     + "		INNER JOIN Room r ON r.rid = ses.rid\n"
@@ -221,6 +221,7 @@ public class SessionDBContext extends DBContext<Session> {
                 Attandance a = new Attandance();
                 a.setStudent(s);
                 a.setSession(ses);
+                a.setRecord_time(rs.getDate("record_time"));
                 a.setPresent(rs.getBoolean("present"));
                 a.setDescription(rs.getString("description"));
                 ses.getAttandances().add(a);
