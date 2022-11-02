@@ -63,7 +63,7 @@ public class AttController extends HttpServlet {
             a.setStudent(s);
             a.setDescription(request.getParameter("description" + stdid));
             a.setPresent(request.getParameter("present" + stdid).equals("present"));
-            s.setId(Integer.parseInt(stdid));
+            s.setId(stdid);
             ses.getAttandances().add(a);
         }
         SessionDBContext db = new SessionDBContext();
