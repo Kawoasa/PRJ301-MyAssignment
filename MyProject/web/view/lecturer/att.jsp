@@ -18,9 +18,15 @@
     <body>
         <div class="container">
             <div class="col-md-12">
+                <h1><span>FPT University Academic Portal</span></h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <span></span>
+                    </li>
+                </ol>
                 <h2>Single activity Attendance</h2>
                 Take attendance for Group: ${requestScope.ses.group.name} <br/>
-                Attendance for <strong> ${requestScope.ses.group.subject.name}</strong> will leacturer <strong>SonNT5</strong> at slot 1 on ${requestScope.ses.date} - ${requestScope.ses.timeslot.description}, in room ${requestScope.ses.room.name} at FU-HL<br>
+                Attendance for <strong> ${requestScope.ses.group.subject.name}</strong> will leacturer <strong>${sessionScope.account.username}</strong> at slot ${requestScope.ses.timeslot.id} on ${requestScope.ses.date} - ${requestScope.ses.timeslot.description}, in room ${requestScope.ses.room.name} at FU-HL<br>
                 Attended: <span style="color: red;"> ${requestScope.ses.attandated?"Yes":"No"} </span>
                 <form action="takeatt" method="POST">
                     <input type="hidden" name="sesid" value="${param.id}"/>
