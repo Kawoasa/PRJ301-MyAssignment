@@ -25,7 +25,7 @@ import model.TimeSlot;
  * @author sonnt
  */
 public class SessionDBContext extends DBContext<Session> {
-    public ArrayList<Session> filter(int lid, Date from, Date to) {
+    public ArrayList<Session> filter(String lid, Date from, Date to) {
         ArrayList<Session> sessions = new ArrayList<>();
         try {
             String sql = "SELECT  \n"
@@ -46,7 +46,7 @@ public class SessionDBContext extends DBContext<Session> {
                     + "AND ses.[date] >= ?\n"
                     + "AND ses.[date] <= ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, lid);
+            stm.setString(1, lid);
             stm.setDate(2, from);
             stm.setDate(3, to);
             ResultSet rs = stm.executeQuery();
@@ -64,7 +64,7 @@ public class SessionDBContext extends DBContext<Session> {
                 session.setIndex(rs.getInt("index"));
                 session.setAttandated(rs.getBoolean("attanded"));
                 
-                l.setId(rs.getInt("lid"));
+                l.setId(rs.getString("lid"));
                 l.setName(rs.getString("lname"));
                 session.setLecturer(l);
                 
@@ -128,7 +128,7 @@ public class SessionDBContext extends DBContext<Session> {
                         + "           ,GETDATE())";
                 PreparedStatement stm_insert = connection.prepareStatement(sql);
                 stm_insert.setInt(1, model.getId());
-                stm_insert.setInt(2, att.getStudent().getId());
+                stm_insert.setString(2, att.getStudent().getId());
                 stm_insert.setBoolean(3, att.isPresent());
                 stm_insert.setString(4, att.getDescription());
                 stm_insert.executeUpdate();
@@ -195,7 +195,7 @@ public class SessionDBContext extends DBContext<Session> {
                     ses.setTimeslot(t);
 
                     Lecturer l = new Lecturer();
-                    l.setId(rs.getInt("lid"));
+                    l.setId(rs.getString("lid"));
                     l.setName(rs.getString("lname"));
                     ses.setLecturer(l);
 
@@ -215,7 +215,7 @@ public class SessionDBContext extends DBContext<Session> {
                 }
                 //read student
                 Student s = new Student();
-                s.setId(rs.getInt("stdid"));
+                s.setId(rs.getString("stdid"));
                 s.setName(rs.getString("stdname"));
                 //read attandance
                 Attandance a = new Attandance();
