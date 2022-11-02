@@ -5,11 +5,14 @@
 
 package controller.home;
 
+import dal.LecturerDBContext;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Account;
+import model.Lecturer;
 
 
 public class HomeController extends HttpServlet {
@@ -23,6 +26,12 @@ public class HomeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        
+//        
+        LecturerDBContext ldb = new LecturerDBContext();
+        Account account = (Account) request.getAttribute("account");
+        Lecturer lec = ldb.get(account.getUsername());
+        request.setAttribute("lec", lec);
        request.getRequestDispatcher("view/home.jsp").forward(request, response);
     } 
 
