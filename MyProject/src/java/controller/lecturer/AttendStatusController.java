@@ -10,9 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import model.Group;
-import model.Session;
 
 /**
  *
@@ -32,7 +30,7 @@ public class AttendStatusController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int gid = Integer.parseInt(request.getParameter("gid"));
-        int lid = Integer.parseInt(request.getParameter("lid"));
+        String lid = request.getParameter("lid");
         int subid = Integer.parseInt(request.getParameter("subid"));
         GroupDBContext gdb = new GroupDBContext();
         Group group = gdb.fliter(gid, lid, subid);
