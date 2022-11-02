@@ -14,7 +14,7 @@ public class Account {
     private String username;
     private String password;
     private String displayname;
-    
+//    private Lecturer lecturer;
     private ArrayList<Role> roles = new ArrayList<>();
 
     public ArrayList<Role> getRoles() {
