@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 public class LogoutController extends HttpServlet {
 
     /**
@@ -26,7 +25,7 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         request.getSession().setAttribute("account", null);
 //        response.getWriter().println("logged out successful!");
-        response.sendRedirect("http://localhost:9999/MyProject/login");
+        request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
