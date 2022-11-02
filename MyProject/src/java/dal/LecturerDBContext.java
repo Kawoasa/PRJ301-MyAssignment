@@ -18,21 +18,23 @@ import model.Lecturer;
  */
 public class LecturerDBContext extends dal.DBContext<Lecturer> {
 
-    public int get(String username) {
-        int lid;
+    public Lecturer get(String username) {
+        Lecturer l = new Lecturer();
         try {
-            String sql = "select l.lid from Account a inner join Lecturer l\n"
+            String sql = "select l.lid, l.lname from Account a inner join Lecturer l\n"
                     + "on a.username = l.lname where a.username = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                return rs.getInt("lid");
+                l.setId(rs.getInt("lid"));
+                l.setName(rs.getString("lname"));
+                return l;
             }
         } catch (SQLException ex) {
             Logger.getLogger(LecturerDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+        return null;
     }
 
     @Override
