@@ -22,13 +22,13 @@ public class LecturerDBContext extends dal.DBContext<Lecturer> {
         Lecturer l = new Lecturer();
         try {
             String sql = "select l.lid, l.lname from Account a inner join Lecturer l\n"
-                    + "on a.username = l.lname where a.username = ?";
+                    + "on a.username = l.lid where a.username = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                l.setId(rs.getInt("lid"));
-                l.setName(rs.getString("lname"));
+                l.setId(rs.getString("lid"));
+                l.setName(rs.getString("lid"));
                 return l;
             }
         } catch (SQLException ex) {
@@ -61,7 +61,7 @@ public class LecturerDBContext extends dal.DBContext<Lecturer> {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Lecturer l = new Lecturer();
-                l.setId(rs.getInt("lid"));
+                l.setId(rs.getString("lid"));
                 l.setName(rs.getString("lname"));
                 return l;
             }
