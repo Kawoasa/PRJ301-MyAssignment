@@ -70,8 +70,12 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <input type="submit" value="Submit" style="margin: 3% 0">
+                        <input type="submit" value="Submit" class="btn btn-primary">
                     </div>
+                    <center> 
+                        <button class="btn btn-default"> <a href="timetable?lid=${requestScope.ses.lecturer.id}">Back
+                            </a></button> 
+                    </center>
                 </form>
             </div>
         </div>
