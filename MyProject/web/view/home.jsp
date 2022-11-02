@@ -14,7 +14,6 @@
         <title>Document</title>
     </head>
     <body>
-        <!--<input type="hidden" name="lid" value="${param.lid}"/>-->
         <div class="container">
             <div class="col-md-12">
                 <center>
@@ -38,7 +37,7 @@
 
                                     <center>
                                         <h4>Information Access(Tra cứu thông tin)</h4>
-                                        <a href="lecturer/timetable?lid=${sessionScope.account.id}">Timetable (Thời khoá biểu)</a>
+                                        <a href="lecturer/timetable?lid=${sessionScope.account.username}">Timetable (Thời khoá biểu)</a>
                                     </center>
                                 </div>
                         </div>
