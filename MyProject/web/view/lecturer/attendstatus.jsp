@@ -21,6 +21,12 @@
     <body>
         <div class="container ">
             <div class="col-md-12">
+                <h1><span>FPT University Academic Portal</span></h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <span></span>
+                    </li>
+                </ol>
                 <form action="status" method="post">
                     <c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
                         <b>Status attendance of group: ${ses.group.name}</b> <br/>
