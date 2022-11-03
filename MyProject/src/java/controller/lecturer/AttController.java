@@ -4,18 +4,20 @@
  */
 package controller.lecturer;
 
+import controller.auth.BaseRoleController;
 import dal.SessionDBContext;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Account;
 import model.Attandance;
 import model.Session;
 import model.Student;
 import util.DateTimeHelper;
 
-public class AttController extends HttpServlet {
+public class AttController extends BaseRoleController {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -35,10 +37,9 @@ public class AttController extends HttpServlet {
         request.setAttribute("ses", ses);
         if (DateTimeHelper.getDaystoCurrent(ses.getDate()) >= 2) {
             request.getRequestDispatcher("../view/lecturer/attendTime.jsp").forward(request, response);
-
-        } //        else if(DateTimeHelper.getDaystoCurrent(ses.getDate())< 0)
-        //            response.getWriter().println("this session is not yet started");
-        else {
+//        } else if (DateTimeHelper.getDaystoCurrent(ses.getDate()) < 0) {
+//            response.getWriter().println("this session is not yet started");
+        } else {
             request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
         }
     }
@@ -81,5 +82,15 @@ public class AttController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    @Override
+    protected void processPost(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    protected void processGet(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

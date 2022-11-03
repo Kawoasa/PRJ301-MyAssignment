@@ -12,16 +12,12 @@ import model.Account;
 import model.Feature;
 import model.Role;
 
-/**
- *
- * @author sonnt
- */
 public abstract class BaseRoleController extends BaseAuthenticationController {
 
     private boolean isAuthorized(HttpServletRequest req)
     {
        Account account = (Account)req.getSession().getAttribute("account");
-       String currentUrl = req.getServletPath();//"/student/add"
+       String currentUrl = req.getServletPath();
         for (Role role : account.getRoles()) {
             for (Feature feature : role.getFeatures()) {
                 if(feature.getUrl().equals(currentUrl))
