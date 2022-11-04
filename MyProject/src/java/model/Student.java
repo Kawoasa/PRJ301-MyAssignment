@@ -46,5 +46,10 @@ public class Student {
     public void setAtts(ArrayList<Attandance> atts) {
         this.atts = atts;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" + "id=" + id + ", name=" + name + ", groups=" + groups + ", atts=" + atts + '}';
+    }
     
 }

@@ -16,7 +16,26 @@ import model.Student;
  *
  * @author Admin
  */
-class StudentDBContext extends DBContext<Student> {
+public class StudentDBContext extends DBContext<Student> {
+
+    public Student get(String username) {
+        Student s = new Student();
+        try {
+            String sql = "select s.stdid, s.stdname from Account a inner join Student s\n"
+                    + "on a.username = s.stdid where a.username = 'DungNTHE131615'";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, username);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                s.setId(rs.getString("stdid"));
+                s.setName(rs.getString("stdname"));
+                return s;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LecturerDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public ArrayList<Student> getlist(int gid) {
         try {

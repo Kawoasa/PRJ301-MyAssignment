@@ -84,6 +84,11 @@ public class Group {
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return "Group{" + "id=" + id + ", name=" + name + ", subject=" + subject + ", lecturer=" + lecturer + ", sessions=" + sessions + ", students=" + students + ", sem=" + sem + ", year=" + year + '}';
+    }
+
     
     
 }

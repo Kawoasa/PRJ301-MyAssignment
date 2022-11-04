@@ -38,5 +38,10 @@ public class Subject {
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{" + "id=" + id + ", name=" + name + ", groups=" + groups + '}';
+    }
     
 }

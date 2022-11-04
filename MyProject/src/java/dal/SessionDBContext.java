@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +27,72 @@ import model.TimeSlot;
  * @author sonnt
  */
 public class SessionDBContext extends DBContext<Session> {
+
+    public ArrayList<Session> getStudentTimetable(String stdid, Date from, Date to) {
+            ArrayList<Session> sessions = new ArrayList<>();
+        try {
+            String sql = "Select r.rid, r.rname,\n"
+                    + "ts.tid, ts.[description],\n"
+                    + "g.gid, g.gname,\n"
+                    + "sub.subid, sub.subname,\n"
+                    + "a.present, std.stdid, std.stdname,\n"
+                    + "s.[date]\n"
+                    + "from [Session] s\n"
+                    + "INNER JOIN [Room] r ON s.rid = r.rid\n"
+                    + "INNER JOIN [TimeSlot] ts ON ts.tid = s.tid\n"
+                    + "INNER JOIN [Group] g ON g.gid = s.gid\n"
+                    + "INNER JOIN [Subject] sub ON sub.subid = g.subid\n"
+                    + "INNER JOIN [Attandance] a ON a.sesid = s.sesid\n"
+                    + "INNER JOIN [Student_Group] sg ON sg.gid = g.gid\n"
+                    + "INNER JOIN [Student] std ON std.stdid = sg.stdid\n"
+                    + "WHERE std.stdid = ? AND s.date BETWEEN ? and ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, stdid);
+            stm.setDate(2, from);
+            stm.setDate(3, to);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Session session = new Session();
+                Room r = new Room();
+                Group g = new Group();
+                TimeSlot t = new TimeSlot();
+                Subject sub = new Subject();
+                Attandance att = new Attandance();
+                Student s = new Student();
+
+                session.setDate(rs.getDate("date"));
+                
+                att.setPresent(rs.getBoolean("present"));
+                session.getAttandances().add(att);
+                
+                s.setId(rs.getString("stdid"));
+                s.setName(rs.getString("stdname"));
+                g.getStudents().add(s);
+
+                g.setId(rs.getInt("gid"));
+                g.setName(rs.getString("gname"));
+                session.setGroup(g);
+
+                sub.setId(rs.getInt("subid"));
+                sub.setName(rs.getString("subname"));
+                g.setSubject(sub);
+
+                r.setId(rs.getInt("rid"));
+                r.setName(rs.getString("rname"));
+                session.setRoom(r);
+
+                t.setId(rs.getInt("tid"));
+                t.setDescription(rs.getString("description"));
+                session.setTimeslot(t);
+
+                sessions.add(session);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sessions;
+    }
+
     public ArrayList<Session> filter(String lid, Date from, Date to) {
         ArrayList<Session> sessions = new ArrayList<>();
         try {
@@ -50,40 +118,39 @@ public class SessionDBContext extends DBContext<Session> {
             stm.setDate(2, from);
             stm.setDate(3, to);
             ResultSet rs = stm.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Session session = new Session();
                 Lecturer l = new Lecturer();
                 Room r = new Room();
                 Group g = new Group();
                 TimeSlot t = new TimeSlot();
                 Subject sub = new Subject();
-                
+
                 session.setId(rs.getInt("sesid"));
                 session.setDate(rs.getDate("date"));
                 session.setIndex(rs.getInt("index"));
                 session.setAttandated(rs.getBoolean("attanded"));
-                
+
                 l.setId(rs.getString("lid"));
                 l.setName(rs.getString("lname"));
                 session.setLecturer(l);
-                
+
                 g.setId(rs.getInt("gid"));
                 g.setName(rs.getString("gname"));
                 session.setGroup(g);
-                
+
                 sub.setId(rs.getInt("subid"));
                 sub.setName(rs.getString("subname"));
                 g.setSubject(sub);
-                
+
                 r.setId(rs.getInt("rid"));
                 r.setName(rs.getString("rname"));
                 session.setRoom(r);
-                
+
                 t.setId(rs.getInt("tid"));
                 t.setDescription(rs.getString("description"));
                 session.setTimeslot(t);
-                
+
                 sessions.add(session);
             }
         } catch (SQLException ex) {
@@ -237,5 +304,16 @@ public class SessionDBContext extends DBContext<Session> {
     public ArrayList<Session> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
+    
+//    public static void main(String[] args) throws ParseException {
+//        SessionDBContext sDB = new SessionDBContext();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        java.util.Date from = sdf.parse("2022-10-30");
+//        java.util.Date to = sdf.parse("2022-11-11");
+//        ArrayList<Session> ses = sDB.getStudentTimetable("DungNTHE131615", new Date(from.getTime()), new Date(to.getTime()));
+//        for (Session se : ses) {
+//            System.out.println(se);
+//        }
+//    }
 }
