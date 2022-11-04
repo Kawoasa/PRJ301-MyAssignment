@@ -22,10 +22,10 @@ import model.TimeSlot;
 
 public class SessionDBContext extends DBContext<Session> {
 
-    public ArrayList<Session> getAttStatus(String stdid,int subid, String sem, String year) {
+    public ArrayList<Session> getAttStatus(String stdid,int subid) {
             ArrayList<Session> sessions = new ArrayList<>();
         try {
-            String sql = "select s.[date], r.rid, r.rname, t.tid, t.[description], l.lid, l.lname, g.gname, a.present, s.attanded from Session s\n"
+            String sql = "select s.[date], r.rid, r.rname, t.tid, t.[description], l.lid, l.lname, g.gname, a.present, s.attanded, g.sem, g.[year] from Session s\n"
                     + "inner join Lecturer l on l.lid=s.lid\n"
                     + "inner join Room r on r.rid = s.rid\n"
                     + "inner join TimeSlot t on t.tid = s.tid\n"
@@ -34,12 +34,11 @@ public class SessionDBContext extends DBContext<Session> {
                     + "inner join [Subject] sub on sub.subid = g.subid\n"
                     + "inner join Student st on st.stdid = stg.stdid\n"
                     + "left join Attandance a on a.stdid= st.stdid and a.sesid = s.sesid\n"
-                    + "where st.stdid = ? and sub.subid = ? and g.sem = ? and g.[year]= ?";
+                    + "where st.stdid = ? and sub.subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, stdid);
             stm.setInt(2, subid);
-            stm.setString(3, sem);
-            stm.setString(4, year);
+            
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Session session = new Session();
@@ -59,6 +58,8 @@ public class SessionDBContext extends DBContext<Session> {
                 
                 
                 g.setName(rs.getString("gname"));
+                g.setSem(rs.getString("sem"));
+                g.setYear(rs.getInt("year"));
                 session.setGroup(g);
                 
                 r.setId(rs.getInt("rid"));
@@ -372,7 +373,7 @@ public class SessionDBContext extends DBContext<Session> {
 //    }
     public static void main(String[] args) {
         SessionDBContext sDB = new SessionDBContext();
-        ArrayList<Session> ses = sDB.getAttStatus("HoangTVHE131415", 3, "FALL", "2022");
+        ArrayList<Session> ses = sDB.getAttStatus("HoangTVHE131415", 3);
         for (Session se : ses) {
             System.out.println(se);
         }

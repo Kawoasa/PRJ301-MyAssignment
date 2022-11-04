@@ -7,110 +7,129 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <link rel="stylesheet" href="Css/viewattendance.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <title>Document</title>
     </head>
     <body>
-        <div class="title">FPT University Academic Portal</div>
-        <div class="home"><a href="HomePage.html">Home</a> | <strong>View Schedule</strong></div>
-        <div class="function">View attendance</div>
-        <div class="row">
-            <div class="CTC">
-                <div class="col-md-3" style="display:flex ;">
-                    <div class="campus1">
-                        <div id="cam1">
-                            <table class="campus">
-                                <tr>
-                                    <th>CAMPUS/PROGRAM</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>FU-HL</strong></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="term1">
-                        <div id="tem1">
-                            <table class="term">
-                                <tr>
-                                    <th>TERM</th>
-                                </tr>
-                                <tr>
-                                    <td>Summer2017</td>
-                                </tr>
-                                <tr>
-                                    <td>Fall2017</td>
-                                </tr>
-                                <tr>
-                                    <td>Spring2017</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="course1">
-                        <div id="cou1">
-                            <table class="course">
-                                <tr>
-                                    <th>COURSE</th>
-                                </tr>
-                                <tr>
-                                    <td>SE1633-PRJ301</td>
-                                </tr>
-                                <tr>
-                                    <td>SE1633-PRN211</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>
+                        <span>FPT University Academic Portal</span>
+                    </h1>
                 </div>
+                <ol class="breadcrumb">
+                    <span><a href="../home">Home</a></span>
+                </ol>
             </div>
-            <div class="view1">
-                <div class="col-md-8" id="vie1">
-                    <table class="view">
-                        <tr>
-                            <th>NO.</th>
-                            <th>DATE</th>
-                            <th>SLOT</th>
-                            <th>ROOM</th>
-                            <th>LECTURE</th>
-                            <th>GROUP NAME</th>
-                            <th>ATTENDANCE STATUS</th>
-                            <th>LECTURE'S COMMENT</th>
-                        </tr>
-                        <c:forEach items="${requestScope.sessions}" var="ses" varStatus="loop">
-                            <tr>
-                                <td>${loop.index+1}</td>
-                                <td>${ses.date}</td>
-                                <td>${ses.timeslot.id}_${ses.timeslot.description}</td>
-                                <td>${ses.room.name}</td>
-                                <td>${ses.lecturer.id}</td>
-                                <td>${ses.group.name}</td>
-                                <c:if test="${ses.attandated}">
-                                    <c:if test="${ses.attandances.get(0).present}">
-                                        <td>
-                                            <font color="green">Present</font>
-                                        </td>
-                                    </c:if>
-                                    <c:if test="${!ses.attandances.get(0).present}">
-                                        <td>
-                                            <font color="red">Absent</font>
-                                        </td>
-                                    </c:if>
-                                </c:if>
-                                <c:if test="${ses.attandated eq false}">
-                                    <td>
-                                        <font color="black">Future</font>
-                                    </td>
-                                </c:if>
-                                <td></td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-                </div>
-            </div>
+            <table>
+                <tbody>
+                    <tr style="border-bottom: 0 none">
+                        <td>
+                            <div> 
+                                <h2>View attendance for <span>${sessionScope.account.displayname} (${sessionScope.account.username})</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top">
+                                                <h3>Select a campus/program, term, course ...</h3><br><br>
+                                                <table summary="Select a course">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Campus/program</th>
+                                                            <th scope="col">Term</th>
+                                                            <th scope="col">Course</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <b>FU-HL</b>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <b>Fall2022</b>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <div>
+                                                                    <table>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <a href="">Java Web Application Development(PRJ301)
+                                                                                    </a>(SE1643,start 05/09/2022)
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td valign="top">
+                                                <h3>... then see report<br><br></h3>
+                                                <table>
+                                                    <tbody>
+                                                        <tr></tr>
+                                                    </tbody>
+                                                    <thead> 
+                                                        <tr>
+                                                            <th>No.</th>
+                                                            <th>Date</th>
+                                                            <th>Slot</th>
+                                                            <th>Room</th>
+                                                            <th>Lecturer</th>
+                                                            <th>Group Name</th>
+                                                            <th>Attedance status</th>
+                                                            <th>Lecturer's comment</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <c:forEach items="${requestScope.sessions}" var="ses" varStatus="loop">
+                                                            <tr>
+                                                                <td>${loop.index+1}</td>
+                                                                <td><span class="label label-primary">${ses.date}</span></td>
+                                                                <td><span class="label label-danger">${ses.timeslot.id}_${ses.timeslot.description}</span></td>
+                                                                <td>${ses.room.name}</td>
+                                                                <td>${ses.lecturer.id}</td>
+                                                                <td>${ses.group.name}</td>
+                                                                <c:if test="${ses.attandated}">
+                                                                    <c:if test="${ses.attandances.get(0).present}">
+                                                                        <td>
+                                                                            <font color="green">Present</font>
+                                                                        </td>
+                                                                    </c:if>
+                                                                    <c:if test="${!ses.attandances.get(0).present}">
+                                                                        <td>
+                                                                            <font color="red">Absent</font>
+                                                                        </td>
+                                                                    </c:if>
+                                                                </c:if>
+                                                                <c:if test="${ses.attandated eq false}">
+                                                                    <td>
+                                                                        <font color="black">Future</font>
+                                                                    </td>
+                                                                </c:if>
+                                                                <td></td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

@@ -36,7 +36,7 @@ public class StudentAttendStatusController extends HttpServlet {
 //        String sem  = request.getParameter("sem");
 //        String year = request.getParameter("year");
         SessionDBContext sdb = new SessionDBContext();
-        ArrayList<Session> ses = sdb.getAttStatus("DungNTHE131615", 3, "FALL", "2022");
+        ArrayList<Session> ses = sdb.getAttStatus("DungNTHE131615", 3);
         request.setAttribute("sessions", ses);
         request.getRequestDispatcher("../view/student/attendstatus.jsp").forward(request, response);
         
