@@ -53,27 +53,33 @@
                             <c:forEach items="${requestScope.slots}" var="slot">
                                 <tr>
                                     <td>Slot ${slot.id} <br/> <span class="label label-success">${slot.description}</span></td> 
-                                        <c:forEach items="${requestScope.dates}" var="d">
+                                    
+                                    <c:forEach items="${requestScope.dates}" var="d">
                                         <td>
                                             <c:forEach items="${requestScope.sessions}" var="ses">
+
                                                 <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                                    <a href="status?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">Status</a>
+                                                    ${ses.group.name}-${ses.group.subject.name}
                                                     <br/>
+
                                                     ${ses.room.name}
                                                     <br/>
-                                                    <c:choose>
-                                                        <c:when test="${ses.attandances.get(0).present}">
-                                                            <a href=""><font color="green">(Attended)</font></a>
-                                                            </c:when>
-                                                            <c:when test="${!ses.attandances.get(0).present}">
+
+                                                    <c:if test="${ses.attandated}">
+                                                        <c:if test="${ses.attandances.get(0).present}">
+
+                                                            <a href=""><font color="green">(Present)</font></a>
+                                                            </c:if>
+                                                            <c:if test="${!ses.attandances.get(0).present}">
                                                             <a href=""><font color="red">(Absent)</font></a>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                            <a href=""><font color="black">(Not yet)</font></a>                                    
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </c:if>
-                                                </c:forEach>
+                                                            </c:if>
+                                                        </c:if>
+                                                        <c:if test="${!ses.attandated}">
+                                                        <a href=""><font color="black">(Not yet)</font></a>  
+                                                        </c:if>
+
+                                                </c:if>
+                                            </c:forEach>
                                         </td>
                                     </c:forEach>
                                 </tr>

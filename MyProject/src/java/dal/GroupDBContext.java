@@ -13,11 +13,8 @@ import java.util.logging.Logger;
 import model.Group;
 import model.Session;
 
-/**
- *
- * @author Admin
- */
 public class GroupDBContext extends DBContext<Group> {
+    
 
     public Group fliter(int gid, String lid, int subid) {
 

@@ -17,12 +17,13 @@ import model.Student;
  * @author Admin
  */
 public class StudentDBContext extends DBContext<Student> {
+    
 
     public Student get(String username) {
         Student s = new Student();
         try {
             String sql = "select s.stdid, s.stdname from Account a inner join Student s\n"
-                    + "on a.username = s.stdid where a.username = 'DungNTHE131615'";
+                    + "on a.username = s.stdid where a.username = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             ResultSet rs = stm.executeQuery();
@@ -103,5 +104,12 @@ public class StudentDBContext extends DBContext<Student> {
         return students;
 
     }
+//    public static void main(String[] args) {
+//        Student s = new Student();
+//        StudentDBContext sdb = new StudentDBContext();
+//        s= sdb.get("DungNTHE131615");
+//        System.out.println(s.toString());
+//        
+//    }
 
 }

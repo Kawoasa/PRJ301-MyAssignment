@@ -28,6 +28,10 @@
         <servlet-name>StudentTimetableController</servlet-name>
         <servlet-class>controller.student.StudentTimetableController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentAttendStatusController</servlet-name>
+        <servlet-class>controller.student.StudentAttendStatusController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>StudentTimetableController</servlet-name>
         <url-pattern>/student/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentAttendStatusController</servlet-name>
+        <url-pattern>/student/status</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

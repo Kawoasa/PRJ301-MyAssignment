@@ -6,10 +6,6 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author sonnt
- */
 public class TimeSlot {
 
     private int id;

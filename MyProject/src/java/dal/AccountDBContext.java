@@ -14,10 +14,7 @@ import model.Account;
 import model.Feature;
 import model.Role;
 
-/**
- *
- * @author sonnt
- */
+
 public class AccountDBContext extends DBContext<Account> {
 
     public Account get(String username, String password) {

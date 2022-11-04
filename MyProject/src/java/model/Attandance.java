@@ -6,10 +6,6 @@ package model;
 
 import java.util.Date;
 
-/**
- *
- * @author sonnt
- */
 public class Attandance {
     private Student student;
     private Session session;

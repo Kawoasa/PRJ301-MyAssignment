@@ -12,10 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Lecturer;
 
-/**
- *
- * @author Ngo Tung Son
- */
 public class LecturerDBContext extends dal.DBContext<Lecturer> {
 
     public Lecturer get(String username) {

@@ -54,5 +54,10 @@ public class Lecturer {
     public void setSessions(ArrayList<Session> sessions) {
         this.sessions = sessions;
     }
+
+    @Override
+    public String toString() {
+        return "Lecturer{" + "id=" + id + ", name=" + name + ", account=" + account + ", groups=" + groups + ", sessions=" + sessions + '}';
+    }
     
 }
