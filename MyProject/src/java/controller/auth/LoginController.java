@@ -45,7 +45,6 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         AccountDBContext db = new AccountDBContext();
         Account account = db.get(username, password);
-        LecturerDBContext ldb = new LecturerDBContext();
         if (account == null) {
 //            response.getWriter().println("login failed!");
             request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);

@@ -12,9 +12,34 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Group;
 import model.Session;
+import model.Subject;
 
 public class GroupDBContext extends DBContext<Group> {
-    
+
+    public ArrayList<Group> getSubject(String stdid) {
+        ArrayList<Group> groups = new ArrayList<>();
+        try {
+            String sql = "Select g.gid, sub.subname from [Group] g\n"
+                    + "INNER JOIN Student_Group stdg ON stdg.gid = g.gid\n"
+                    + "Inner join Student st on st.stdid = stdg.stdid\n"
+                    + "inner join [Subject] sub on sub.subid = g.subid\n"
+                    + "Where stdg.stdid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, stdid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Group g = new Group();
+                Subject s = new Subject();
+                g.setId(rs.getInt("gid"));
+                s.setName(rs.getString("subname"));
+                g.setSubject(s);
+                groups.add(g);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return groups;
+    }
 
     public Group fliter(int gid, String lid, int subid) {
 
@@ -73,6 +98,14 @@ public class GroupDBContext extends DBContext<Group> {
     @Override
     public ArrayList<Group> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public static void main(String[] args) {
+        GroupDBContext gdb = new GroupDBContext();
+        ArrayList<Group> g = gdb.getSubject("HoangTVHE131415");
+        for (Group group : g) {
+            System.out.println(group);
+        }
     }
 
 }

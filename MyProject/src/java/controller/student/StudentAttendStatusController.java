@@ -33,10 +33,9 @@ public class StudentAttendStatusController extends HttpServlet {
             throws ServletException, IOException {
 //        String stdid = request.getParameter("stdid");
 //        int subid = Integer.parseInt(request.getParameter("subid"));
-//        String sem  = request.getParameter("sem");
-//        String year = request.getParameter("year");
+
         SessionDBContext sdb = new SessionDBContext();
-        ArrayList<Session> ses = sdb.getAttStatus("DungNTHE131615", 3);
+        ArrayList<Session> ses = sdb.getAttStatus("HoangTVHE131415", 1);
         request.setAttribute("sessions", ses);
         request.getRequestDispatcher("../view/student/attendstatus.jsp").forward(request, response);
         
