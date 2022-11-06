@@ -31,11 +31,11 @@ public class StudentAttendStatusController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String stdid = request.getParameter("stdid");
-//        int subid = Integer.parseInt(request.getParameter("subid"));
+        String stdid = request.getParameter("stdid");
+        int subid = Integer.parseInt(request.getParameter("subid"));
 
         SessionDBContext sdb = new SessionDBContext();
-        ArrayList<Session> ses = sdb.getAttStatus("HoangTVHE131415", 1);
+        ArrayList<Session> ses = sdb.getAttStatus(stdid, subid);
         request.setAttribute("sessions", ses);
         request.getRequestDispatcher("../view/student/attendstatus.jsp").forward(request, response);
         
