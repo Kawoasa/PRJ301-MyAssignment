@@ -24,6 +24,7 @@ public class LogoutController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getSession().setAttribute("account", null);
+
 //        response.getWriter().println("logged out successful!");
         request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);
     }

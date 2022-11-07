@@ -8,6 +8,7 @@ import dal.AccountDBContext;
 import dal.GroupDBContext;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,6 +30,17 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Cookie[] listCookie = request.getCookies();
+        if (listCookie != null) {
+            for (Cookie c : listCookie) {
+                if (c.getName().equals("u")) {
+                    request.setAttribute("username", c.getValue());
+                }
+                if (c.getName().equals("p")) {
+                    request.setAttribute("password", c.getValue());
+                }
+            }
+        }
         request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);
     }
 
@@ -45,6 +57,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String remember = request.getParameter("remember");
         AccountDBContext db = new AccountDBContext();
         Account account = db.get(username, password);
         GroupDBContext gdb = new GroupDBContext();
@@ -53,6 +66,17 @@ public class LoginController extends HttpServlet {
 //            response.getWriter().println("login failed!");
             response.sendRedirect("login");
         } else {
+            Cookie cookieUser = new Cookie("u", username);
+            Cookie cookiePassword = new Cookie("p", password);
+            cookieUser.setMaxAge(60 * 60 * 24);
+
+            if (remember != null) {
+                cookiePassword.setMaxAge(60 * 60 * 24);
+            } else {
+                cookiePassword.setMaxAge(0);
+            }
+            response.addCookie(cookieUser);
+            response.addCookie(cookiePassword);
             request.setAttribute("groups", groups);
             request.getSession().setAttribute("account", account);
             request.getRequestDispatcher("/view/home.jsp").forward(request, response);

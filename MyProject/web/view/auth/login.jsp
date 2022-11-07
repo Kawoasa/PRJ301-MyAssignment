@@ -36,12 +36,14 @@
                                         <div class="row">
                                             <form action="login" method="POST">
                                                 <label for="username"><b>Username: </b></label>
-                                                <input type="text" placeholder="Enter Username" name="username" required>
+                                                <input type="text" placeholder="Enter Username" name="username" required value="${username}">
                                                 <br/>
                                                 <br/>
                                                 <label for="password"><b>Password: </b></label>
-                                                <input type="password" placeholder="Enter Password" name="password" required>
+                                                <input type="password" placeholder="Enter Password" name="password" required value="${password}">
                                                 <br/>
+                                                <label for="password">Remember Me</label>
+                                                <input type="checkbox" name="remember">
                                                 <br/>
                                                 <input class="btn btn-primary" type="submit" value="Login"/>
                                             </form>
