@@ -4,6 +4,7 @@
  */
 package controller.student;
 
+import dal.GroupDBContext;
 import dal.SessionDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Group;
 import model.Session;
 
 
@@ -37,6 +39,10 @@ public class StudentAttendStatusController extends HttpServlet {
         SessionDBContext sdb = new SessionDBContext();
         ArrayList<Session> ses = sdb.getAttStatus(stdid, subid);
         request.setAttribute("sessions", ses);
+        
+        GroupDBContext gdb = new GroupDBContext();
+        ArrayList<Group> groups = gdb.getSubject(stdid);
+        request.setAttribute("groups", groups);
         request.getRequestDispatcher("../view/student/attendstatus.jsp").forward(request, response);
         
     }

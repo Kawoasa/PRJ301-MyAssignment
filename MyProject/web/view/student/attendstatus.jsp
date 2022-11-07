@@ -52,17 +52,20 @@
                                                                 <b>FU-HL</b>
                                                             </td>
                                                             <td valign="top">
-                                                                <b>Fall2022</b>
+                                                                <b>${sessions.group.sem}</b>
+                                                                    <b>${sessions.group.year}</b>
                                                             </td>
                                                             <td valign="top">
                                                                 <div>
                                                                     <table>
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td>
-                                                                                    <a href="">Java Web Application Development(PRJ301)
-                                                                                    </a>(SE1643,start 05/09/2022)
-                                                                                </td>
+                                                                                <c:forEach items="${groups}" var="g">
+                                                                                    <td>
+                                                                                        <a href="">${g.subject.name}
+                                                                                        </a>(SE1643,start 05/09/2022)
+                                                                                    </td>
+                                                                                </c:forEach>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
