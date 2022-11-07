@@ -59,10 +59,6 @@
                                                 <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
                                                     <a href="takeatt?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
                                                     <br/>
-                                                    <a href="status?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">Status</a>
-                                                    <br/>
-                                                    ${ses.room.name}
-                                                    <br/>
                                                     <c:choose>
                                                         <c:when test="${ses.attandated}">
                                                             <a href=""><font color="green">(Attended)</font></a>

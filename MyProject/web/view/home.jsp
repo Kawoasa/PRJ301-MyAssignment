@@ -14,6 +14,7 @@
         <title>Document</title>
     </head>
     <body>
+
         <div class="container">
             <div class="col-md-12">
                 <center>
@@ -22,7 +23,7 @@
                         <div>
                             <ol class="breadcrumb">
                                 <li>
-                                    <span>Hello ${sessionScope.account.displayname},  click 
+                                    <span>Hello <b>${sessionScope.account.displayname}</b>,  click 
                                         <a href="logout">here</a> 
                                         to logout.</span>
                                 </li>
@@ -37,17 +38,28 @@
                                         <b>Academic Information</b>
                                     </span>
                                 </legend>
-                                <div class="listBoxWrapper">
+                                <c:if test="${sessionScope.account.roles.get(0).id eq 1}">
+                                    <div class="listBoxWrapper">
 
-                                    <center>
-                                        <h4>Information Access(Tra cứu thông tin)</h4>
-                                        <a href="lecturer/timetable?lid=${sessionScope.account.username}">Timetable (Thời khoá biểu)</a>
-                                    </center>
-                                </div>
+                                        <center>
+                                            <h4>Information Access(Tra cứu thông tin)</h4>
+                                            <a href="lecturer/timetable?lid=${sessionScope.account.username}">Timetable (Thời khoá biểu)</a>
+                                        </center>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.account.roles.get(0).id eq 2}">
+                                    <div class="listBoxWrapper">
+                                        <center>
+                                            <h4>Information Access(Tra cứu thông tin)</h4>
+                                            <a href="student/timetable?stdid=${sessionScope.account.username}">Timetable</a> (Thời khoá biểu) <br/>
+                                            <a href="student/status?stdid=${sessionScope.account.username}&subid=${groups.get(0).subject.id}">Attendance report</a> (Báo cáo điểm danh)
+                                        </center>
+                                    </div>
+                                </c:if>
                         </div>
                     </c:if>
                     <c:if test="${sessionScope.account eq null}">
-                        <h2>you are not logged in yet!</h2> 
+                        <h2>You are not logged in yet!</h2> 
                     </c:if>
                 </center>
             </div>

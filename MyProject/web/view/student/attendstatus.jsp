@@ -32,12 +32,12 @@
                     <tr style="border-bottom: 0 none">
                         <td>
                             <div> 
-                                <h2>View attendance for <span>${sessionScope.account.displayname} (${sessionScope.account.username})</span></h2>
+                                <h2>View attendance for <span>${sessions.get(0).group.students.get(0).id} (${sessions.get(0).group.students.get(0).name})</span></h2>
                                 <table>
                                     <tbody>
                                         <tr>
                                             <td valign="top">
-                                                <h3>Select a campus/program, term, course ...</h3><br><br>
+                                                <h3>Select a campus/program, term, course ...</h3>
                                                 <table summary="Select a course">
                                                     <thead>
                                                         <tr>
@@ -52,21 +52,21 @@
                                                                 <b>FU-HL</b>
                                                             </td>
                                                             <td valign="top">
-                                                                <b>${sessions.group.sem}</b>
-                                                                    <b>${sessions.group.year}</b>
+                                                                <b>${sessions.get(0).group.sem}${sessions.get(0).group.year}</b>
                                                             </td>
                                                             <td valign="top">
                                                                 <div>
                                                                     <table>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <c:forEach items="${groups}" var="g">
+                                                                            <c:forEach items="${groups}" var="g">
+                                                                                <tr>
                                                                                     <td>
-                                                                                        <a href="">${g.subject.name}
-                                                                                        </a>(SE1643,start 05/09/2022)
+                                                                                        <a href="status?stdid=${sessions.get(0).group.students.get(0).id}&subid=${g.subject.id}">
+                                                                                            ${g.subject.name}
+                                                                                        </a>
                                                                                     </td>
-                                                                                </c:forEach>
-                                                                            </tr>
+                                                                                </tr>
+                                                                            </c:forEach>
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -76,7 +76,7 @@
                                                 </table>
                                             </td>
                                             <td valign="top">
-                                                <h3>... then see report<br><br></h3>
+                                                <h3>... then see report</h3><br><br>
                                                 <table>
                                                     <tbody>
                                                         <tr></tr>
@@ -94,7 +94,10 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <c:set var="total" value="0"/>
+                                                        <c:set var="absent" value="0"/>
                                                         <c:forEach items="${requestScope.sessions}" var="ses" varStatus="loop">
+                                                            <c:set var="total" value="${total+1}"/>
                                                             <tr>
                                                                 <td>${loop.index+1}</td>
                                                                 <td><span class="label label-primary">${ses.date}</span></td>
@@ -111,6 +114,7 @@
                                                                     <c:if test="${!ses.attandances.get(0).present}">
                                                                         <td>
                                                                             <font color="red">Absent</font>
+                                                                            <c:set var="absent" value="${absent+1}"/>
                                                                         </td>
                                                                     </c:if>
                                                                 </c:if>
@@ -122,6 +126,16 @@
                                                                 <td></td>
                                                             </tr>
                                                         </c:forEach>
+                                                        <tr style="text-align: center">
+                                                            <td colspan="6">
+                                                                ABSENT:    <c:if test="${absent/total <= 0.4}">
+                                                                    <span style="color:green"> ${absent/total*100}%</span> / ABSENT SO FAR (${absent} ABSENT ON ${total} TOTAL).
+                                                                </c:if>
+                                                                <c:if test="${absent/total >= 0.6}">
+                                                                    <span style="color:red"> ${absent/total*100}%</span> / ABSENT SO FAR (${absent} ABSENT ON ${total} TOTAL).
+                                                                </c:if>
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </td>
@@ -133,6 +147,10 @@
                     </tr>
                 </tbody>
             </table>
+            <center> 
+                <button class="btn btn-default"> <a href="../home">Back
+                    </a></button> 
+            </center>
         </div>
     </body>
 </html>

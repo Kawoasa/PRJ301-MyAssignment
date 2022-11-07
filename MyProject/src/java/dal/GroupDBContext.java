@@ -19,7 +19,7 @@ public class GroupDBContext extends DBContext<Group> {
     public ArrayList<Group> getSubject(String stdid) {
         ArrayList<Group> groups = new ArrayList<>();
         try {
-            String sql = "Select g.gid, sub.subname from [Group] g\n"
+            String sql = "Select g.gid,sub.subid, sub.subname from [Group] g\n"
                     + "INNER JOIN Student_Group stdg ON stdg.gid = g.gid\n"
                     + "Inner join Student st on st.stdid = stdg.stdid\n"
                     + "inner join [Subject] sub on sub.subid = g.subid\n"
@@ -31,6 +31,7 @@ public class GroupDBContext extends DBContext<Group> {
                 Group g = new Group();
                 Subject s = new Subject();
                 g.setId(rs.getInt("gid"));
+                s.setId(rs.getInt("subid"));
                 s.setName(rs.getString("subname"));
                 g.setSubject(s);
                 groups.add(g);

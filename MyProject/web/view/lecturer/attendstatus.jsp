@@ -24,7 +24,7 @@
                 <h1><span>FPT University Academic Portal</span></h1>
                 <ol class="breadcrumb">
                     <li>
-                        <span></span>
+                        <span><a href="../home">Home</a></span>
                     </li>
                 </ol>
                 <form action="status" method="post">

@@ -36,8 +36,8 @@ public class AttController extends BaseRoleController {
         request.setAttribute("ses", ses);
         if (DateTimeHelper.getDaystoCurrent(ses.getDate()) >= 2) {
             request.getRequestDispatcher("../view/lecturer/attendTime.jsp").forward(request, response);
-//        } else if (DateTimeHelper.getDaystoCurrent(ses.getDate()) < 0) {
-//            response.getWriter().println("this session is not yet started");
+        } else if (DateTimeHelper.getDaystoCurrent(ses.getDate()) < 0) {
+            response.getWriter().println("this session is not yet started");
         } else {
             request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
         }

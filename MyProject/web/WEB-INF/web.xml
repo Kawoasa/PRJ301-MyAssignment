@@ -32,6 +32,14 @@
         <servlet-name>StudentAttendStatusController</servlet-name>
         <servlet-class>controller.student.StudentAttendStatusController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>attendstatusView</servlet-name>
+        <jsp-file>/view/student/attendstatus.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>homeView</servlet-name>
+        <jsp-file>/view/home.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>StudentAttendStatusController</servlet-name>
         <url-pattern>/student/status</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>attendstatusView</servlet-name>
+        <url-pattern>/student/attendstatus/view</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>homeView</servlet-name>
+        <url-pattern>/homeView</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -53,7 +53,7 @@
                             <c:forEach items="${requestScope.slots}" var="slot">
                                 <tr>
                                     <td>Slot ${slot.id} <br/> <span class="label label-success">${slot.description}</span></td> 
-                                    
+
                                     <c:forEach items="${requestScope.dates}" var="d">
                                         <td>
                                             <c:forEach items="${requestScope.sessions}" var="ses">

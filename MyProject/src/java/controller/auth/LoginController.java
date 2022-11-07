@@ -5,13 +5,15 @@
 package controller.auth;
 
 import dal.AccountDBContext;
-import dal.LecturerDBContext;
+import dal.GroupDBContext;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import model.Account;
+import model.Group;
 
 public class LoginController extends HttpServlet {
 
@@ -45,12 +47,15 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         AccountDBContext db = new AccountDBContext();
         Account account = db.get(username, password);
+        GroupDBContext gdb = new GroupDBContext();
+        ArrayList<Group> groups = gdb.getSubject(username);
         if (account == null) {
 //            response.getWriter().println("login failed!");
-            request.getRequestDispatcher("view/auth/login.jsp").forward(request, response);
+            response.sendRedirect("login");
         } else {
+            request.setAttribute("groups", groups);
             request.getSession().setAttribute("account", account);
-            request.getRequestDispatcher("view/home.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/home.jsp").forward(request, response);
 //            response.getWriter().println("login successful!");
         }
     }

@@ -14,9 +14,9 @@ import model.Account;
 import model.Feature;
 import model.Role;
 
-
 public class AccountDBContext extends DBContext<Account> {
 
+    
     public Account get(String username, String password) {
         try {
             String sql = "SELECT a.username,a.displayname\n"
@@ -42,20 +42,17 @@ public class AccountDBContext extends DBContext<Account> {
                     account.setDisplayname(rs.getString("displayname"));
                 }
                 int rid = rs.getInt("rid");
-                if(rid!=0)
-                {
-                    if(rid!= currentRole.getId())
-                    {
+                if (rid != 0) {
+                    if (rid != currentRole.getId()) {
                         currentRole = new Role();
                         currentRole.setId(rs.getInt("rid"));
                         currentRole.setName(rs.getString("rname"));
                         account.getRoles().add(currentRole);
                     }
                 }
-                
+
                 int fid = rs.getInt("fid");
-                if(fid!=0)
-                {
+                if (fid != 0) {
                     Feature f = new Feature();
                     f.setId(rs.getInt("fid"));
                     f.setName(rs.getString("fname"));
