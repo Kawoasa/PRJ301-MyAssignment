@@ -1,6 +1,6 @@
 USE [PRJ301_FALL2022_Assignment]
 GO
-/****** Object:  Table [dbo].[Account]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Account]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15,7 +15,7 @@ CREATE TABLE [dbo].[Account](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Attandance]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Attandance]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[Attandance](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Feature]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Feature]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -48,7 +48,7 @@ CREATE TABLE [dbo].[Feature](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Group]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Group]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -66,7 +66,7 @@ CREATE TABLE [dbo].[Group](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Lecturer]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Lecturer]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -80,7 +80,7 @@ CREATE TABLE [dbo].[Lecturer](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Role]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,7 +94,7 @@ CREATE TABLE [dbo].[Role](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role_Account]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Role_Account]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[Role_Account](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role_Feature]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Role_Feature]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Role_Feature](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Room]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Room]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -138,7 +138,7 @@ CREATE TABLE [dbo].[Room](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Session]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Session]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -158,7 +158,7 @@ CREATE TABLE [dbo].[Session](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Student]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Student]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,7 +172,7 @@ CREATE TABLE [dbo].[Student](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Student_Group]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Student_Group]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +187,7 @@ CREATE TABLE [dbo].[Student_Group](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Subject]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[Subject]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -201,7 +201,7 @@ CREATE TABLE [dbo].[Subject](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TimeSlot]    Script Date: 7/11/2022 7:49:38 AM ******/
+/****** Object:  Table [dbo].[TimeSlot]    Script Date: 8/11/2022 9:29:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,11 +235,43 @@ INSERT [dbo].[Account] ([username], [password], [displayname]) VALUES (N'ThanhLB
 GO
 INSERT [dbo].[Account] ([username], [password], [displayname]) VALUES (N'TrangDTHE151415', N'54321', N'Ðặng Thuỳ Trang')
 GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (1, N'AnhNTQHE161713', 1, N'', CAST(N'2022-11-08T12:14:42.783' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (1, N'HoangTVHE131415', 0, N'Khong phep', CAST(N'2022-11-08T12:14:42.783' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (1, N'KhanhHDHE161417', 1, N'', CAST(N'2022-11-08T12:14:42.783' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (1, N'LongNTHE161416', 1, N'', CAST(N'2022-11-08T12:14:42.783' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (2, N'AnhNTQHE161713', 0, N'', CAST(N'2022-11-08T03:19:32.740' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (2, N'HoangTVHE131415', 1, N'', CAST(N'2022-11-08T03:19:32.743' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (2, N'KhanhHDHE161417', 1, N'', CAST(N'2022-11-08T03:19:32.743' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (2, N'LongNTHE161416', 0, N'', CAST(N'2022-11-08T03:19:32.743' AS DateTime))
+GO
 INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (6, N'DungNTHE131615', 0, N'X', CAST(N'2022-11-03T01:26:54.853' AS DateTime))
 GO
 INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (6, N'HoangTVHE131415', 1, N'', CAST(N'2022-11-03T01:26:54.857' AS DateTime))
 GO
 INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (6, N'TrangDTHE151415', 0, N'', CAST(N'2022-11-03T01:26:54.857' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (7, N'DungNTHE131615', 0, N'', CAST(N'2022-11-08T03:20:10.797' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (7, N'HoangTVHE131415', 0, N'', CAST(N'2022-11-08T03:20:10.797' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (7, N'TrangDTHE151415', 1, N'', CAST(N'2022-11-08T03:20:10.797' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (11, N'ThanhLBHE161616', 1, N'', CAST(N'2022-11-07T22:49:59.040' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (16, N'HoangTVHE131415', 1, N'', CAST(N'2022-11-07T22:48:19.013' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (16, N'LongNTHE161416', 0, N'', CAST(N'2022-11-07T22:48:19.013' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (17, N'HoangTVHE131415', 1, N'', CAST(N'2022-11-08T03:20:29.943' AS DateTime))
+GO
+INSERT [dbo].[Attandance] ([sesid], [stdid], [present], [description], [record_time]) VALUES (17, N'LongNTHE161416', 1, N'', CAST(N'2022-11-08T03:20:29.943' AS DateTime))
 GO
 INSERT [dbo].[Feature] ([fid], [fname], [url]) VALUES (1, N'Timetable', N'/lecturer/timetable')
 GO
@@ -279,15 +311,29 @@ INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (1, N'Sonnt5')
 GO
 INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (2, N'AnhNTQHE161713')
 GO
+INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (2, N'DungNTHE131615')
+GO
+INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (2, N'HoangTVHE131415')
+GO
+INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (2, N'LongNTHE161416')
+GO
+INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (2, N'ThanhLBHE161616')
+GO
+INSERT [dbo].[Role_Account] ([rid], [username]) VALUES (2, N'TrangDTHE151415')
+GO
 INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (1, 1)
 GO
 INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (1, 2)
 GO
 INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (1, 3)
 GO
+INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (1, 6)
+GO
 INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (2, 4)
 GO
 INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (2, 5)
+GO
+INSERT [dbo].[Role_Feature] ([rid], [fid]) VALUES (2, 6)
 GO
 INSERT [dbo].[Room] ([rid], [rname]) VALUES (1, N'DE-C205')
 GO
@@ -297,43 +343,43 @@ INSERT [dbo].[Room] ([rid], [rname]) VALUES (3, N'AL-R203')
 GO
 INSERT [dbo].[Room] ([rid], [rname]) VALUES (4, N'BE-401')
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (1, 1, 1, CAST(N'2022-10-30' AS Date), 1, 1, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (1, 1, 1, CAST(N'2022-11-07' AS Date), 1, 1, N'Sonnt5', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (2, 1, 1, CAST(N'2022-11-12' AS Date), 1, 2, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (2, 1, 1, CAST(N'2022-11-08' AS Date), 1, 2, N'Sonnt5', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (3, 1, 1, CAST(N'2022-11-14' AS Date), 1, 3, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (3, 1, 1, CAST(N'2022-11-09' AS Date), 1, 3, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (4, 1, 1, CAST(N'2022-11-17' AS Date), 1, 4, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (4, 1, 1, CAST(N'2022-11-10' AS Date), 1, 4, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (5, 1, 1, CAST(N'2022-11-19' AS Date), 1, 5, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (5, 1, 1, CAST(N'2022-11-11' AS Date), 1, 5, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (6, 2, 1, CAST(N'2022-11-10' AS Date), 2, 1, N'Sonnt5', 1)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (6, 2, 1, CAST(N'2022-11-07' AS Date), 2, 1, N'Sonnt5', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (7, 2, 1, CAST(N'2022-11-12' AS Date), 2, 2, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (7, 2, 1, CAST(N'2022-11-08' AS Date), 2, 2, N'Sonnt5', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (8, 2, 1, CAST(N'2022-11-14' AS Date), 2, 3, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (8, 2, 1, CAST(N'2022-11-09' AS Date), 2, 3, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (9, 2, 1, CAST(N'2022-11-17' AS Date), 2, 4, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (9, 2, 1, CAST(N'2022-11-10' AS Date), 2, 4, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (10, 2, 1, CAST(N'2022-11-19' AS Date), 2, 5, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (10, 2, 1, CAST(N'2022-11-11' AS Date), 2, 5, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (11, 3, 2, CAST(N'2022-11-10' AS Date), 1, 1, N'Annv64', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (11, 3, 2, CAST(N'2022-11-07' AS Date), 1, 1, N'Annv64', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (12, 3, 2, CAST(N'2022-11-12' AS Date), 1, 2, N'Annv64', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (12, 3, 2, CAST(N'2022-11-08' AS Date), 1, 2, N'Annv64', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (13, 3, 2, CAST(N'2022-11-14' AS Date), 1, 3, N'Annv64', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (13, 3, 2, CAST(N'2022-11-09' AS Date), 1, 3, N'Annv64', 0)
 GO
 INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (14, 3, 2, CAST(N'2022-11-17' AS Date), 1, 4, N'Annv64', 0)
 GO
 INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (15, 3, 2, CAST(N'2022-11-19' AS Date), 1, 5, N'Annv64', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (16, 4, 1, CAST(N'2022-11-10' AS Date), 3, 1, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (16, 4, 1, CAST(N'2022-11-07' AS Date), 3, 1, N'Sonnt5', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (17, 4, 1, CAST(N'2022-11-12' AS Date), 3, 2, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (17, 4, 1, CAST(N'2022-11-08' AS Date), 3, 2, N'Sonnt5', 1)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (18, 4, 1, CAST(N'2022-11-14' AS Date), 3, 3, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (18, 4, 1, CAST(N'2022-11-09' AS Date), 3, 3, N'Sonnt5', 0)
 GO
-INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (19, 4, 1, CAST(N'2022-11-17' AS Date), 3, 4, N'Sonnt5', 0)
+INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (19, 4, 1, CAST(N'2022-11-10' AS Date), 3, 4, N'Sonnt5', 0)
 GO
 INSERT [dbo].[Session] ([sesid], [gid], [rid], [date], [tid], [index], [lid], [attanded]) VALUES (20, 4, 1, CAST(N'2022-11-19' AS Date), 3, 5, N'Sonnt5', 0)
 GO
