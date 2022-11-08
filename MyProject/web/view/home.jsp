@@ -60,6 +60,10 @@
                     </c:if>
                     <c:if test="${sessionScope.account eq null}">
                         <h2>You are not logged in yet!</h2> 
+                        <center> 
+                        <button class="btn btn-default"> <a href="login">Go to Login
+                            </a></button> 
+                    </center>
                     </c:if>
                 </center>
             </div>

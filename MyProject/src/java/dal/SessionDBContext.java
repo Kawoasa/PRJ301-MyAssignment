@@ -76,7 +76,7 @@ public class SessionDBContext extends DBContext<Session> {
                 g.getStudents().add(s);
 
                 att.setPresent(rs.getBoolean("present"));
-                att.setDescription(rs.getString("description"));
+                att.setDescription(rs.getString(15));
                 session.getAttandances().add(att);
                 sessions.add(session);
             }
@@ -350,7 +350,7 @@ public class SessionDBContext extends DBContext<Session> {
                 Attandance a = new Attandance();
                 a.setStudent(s);
                 a.setSession(ses);
-                a.setRecord_time(rs.getDate("record_time"));
+                a.setRecord_time(rs.getTimestamp("record_time"));
                 a.setPresent(rs.getBoolean("present"));
                 a.setDescription(rs.getString("description"));
                 ses.getAttandances().add(a);

@@ -16,8 +16,17 @@ public class Session {
     private Group group;
     private int index;
     private boolean attandated; 
+    private Student student;
     private ArrayList<Attandance> attandances = new ArrayList<>();
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+    
     public int getId() {
         return id;
     }

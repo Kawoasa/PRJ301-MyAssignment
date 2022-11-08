@@ -123,7 +123,7 @@
                                                                         <font color="black">Future</font>
                                                                     </td>
                                                                 </c:if>
-                                                                <td></td>
+                                                                <td>${ses.attandances.get(0).description}</td>
                                                             </tr>
                                                         </c:forEach>
                                                         <tr style="text-align: center">

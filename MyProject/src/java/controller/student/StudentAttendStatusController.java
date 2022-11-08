@@ -4,7 +4,6 @@
  */
 package controller.student;
 
-import controller.auth.BaseRoleController;
 import dal.GroupDBContext;
 import dal.SessionDBContext;
 import jakarta.servlet.ServletException;
@@ -13,7 +12,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import model.Account;
 import model.Group;
 import model.Session;
 
@@ -87,15 +85,5 @@ public class StudentAttendStatusController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-//    @Override
-//    protected void processPost(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
-//        processRequest(req, resp, account);
-//    }
-//
-//    @Override
-//    protected void processGet(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
-//        processRequest(req, resp, account);
-//    }
 
 }
