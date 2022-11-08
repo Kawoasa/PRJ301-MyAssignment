@@ -9,6 +9,7 @@ import dal.SessionDBContext;
 import dal.StudentDBContext;
 import dal.TimeSlotDBContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -24,19 +25,21 @@ import util.DateTimeHelper;
  *
  * @author Admin
  */
-public class StudentTimetableController extends BaseRoleController {
+public class StudentTimetableController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response, Account account)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String stdid = account.getUsername();
+        String stdid = request.getParameter("stdid");
         String raw_from = request.getParameter("from");
         String raw_to = request.getParameter("to");
         java.sql.Date from = null;
@@ -73,15 +76,15 @@ public class StudentTimetableController extends BaseRoleController {
 
     }
 
-    @Override
-    protected void processPost(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
-        processRequest(req, resp, account);
-    }
-
-    @Override
-    protected void processGet(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
-        processRequest(req, resp, account);
-    }
+//    @Override
+//    protected void processPost(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
+//        processRequest(req, resp, account);
+//    }
+//
+//    @Override
+//    protected void processGet(HttpServletRequest req, HttpServletResponse resp, Account account) throws ServletException, IOException {
+//        processRequest(req, resp, account);
+//    }
 
    
 }
